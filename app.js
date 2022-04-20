@@ -1,5 +1,3 @@
-import { SocketAddress } from "net";
-
 let surl = document.getElementById("serverurl");
 let serverurl = surl.value;
 let socket = new WebSocket(serverurl);
