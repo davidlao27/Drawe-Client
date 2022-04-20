@@ -8,7 +8,7 @@
     <title>Drawe Client</title>
 </head>
 
-<body ontouchstart="countTouches(event)" ontouchend="countTouches(event)">
+<body ontouchmove="countTouches(event)" ontouchend="countTouches(event)">
     <input type="text" id="serverurl" value="wss://IP_OR_DOMAIN:4127"></input>
     
     <button onclick="toggleDraw();">Draw</button>

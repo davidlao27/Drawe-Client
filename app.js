@@ -1,3 +1,5 @@
+import { SocketAddress } from "net";
+
 let surl = document.getElementById("serverurl");
 let serverurl = surl.value;
 let socket = new WebSocket(serverurl);
@@ -5,6 +7,9 @@ let di = document.getElementById("status");
 let mousedata;
 let touchdata = 0;
 let canDraw = false;
+
+var width = screen.width;
+var height = screen.height;
 
 function log(msg) {
   di.innerHTML = msg;
@@ -41,6 +46,7 @@ function initSock() {
     log("Connected to server.")
     surl.style.position = "absolute";
     surl.style.visibility = "hidden";
+    socket.send(width + "," + height);
   };
 
   socket.onmessage = function (event) {
