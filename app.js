@@ -52,7 +52,7 @@ function initSock() {
     } else {
       // e.g. server process killed or network down
       // event.code is usually 1006 in this case
-      log('[close] Connection died. Retrying in 2 seconds... (try to change the URL?)');
+      log('[close] Connection died. Retrying in 2 seconds: ' + serverurl);
       surl.style.position = "relative";
       surl.style.visibility = "visible";
 
