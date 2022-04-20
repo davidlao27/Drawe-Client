@@ -34,6 +34,7 @@ function toggleDraw() {
 }
 
 function initSock() {
+  serverurl = surl.value;
   socket = new WebSocket(serverurl);
 
   socket.onopen = function (e) {
