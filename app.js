@@ -4,7 +4,7 @@ let socket = new WebSocket(serverurl);
 let di = document.getElementById("status");
 let mousedata;
 let touchdata = 0;
-let canDraw = false;
+let canDraw = true;
 
 var width = screen.width;
 var height = screen.height;
@@ -32,13 +32,22 @@ function countTouches(event) {
 }
 
 function toggleDraw() {
-  if (canDraw == false) canDraw = true
-  else canDraw = false
+  if (canDraw == false) {
+    canDraw = true
+  } else {
+    canDraw = false
+  }
 }
 
 function initSock() {
   serverurl = surl.value;
-  socket = new WebSocket(serverurl);
+  if (serverurl.startsWith("wss://")) {
+    socket = new WebSocket(serverurl);
+  } else {
+    setTimeout(() => {
+      initSock();
+    }, 1000);
+  }
 
   socket.onopen = function (e) {
     log("Connected to server.")
